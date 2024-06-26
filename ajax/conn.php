@@ -1,9 +1,6 @@
 <?php
 
-use Symfony\Component\Dotenv\Dotenv;
-
-$dotenv = new Dotenv();
-$dotenv->load(__DIR__ . '/../.env');
+require (__DIR__ . '/loadDotenv.php');
 
 function formatDados($arr)
 {
@@ -26,7 +23,6 @@ function initiateConnect()
     $username = $_ENV['DB_USERNAME'];
     $passwd = $_ENV['DB_PASSWORD'];
     $database = $_ENV['DB_DATABASE'];
-
 
     return new mysqli($hostname, $username, $passwd, $database);
 }

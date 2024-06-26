@@ -1,9 +1,6 @@
 <?php
 
-use Symfony\Component\Dotenv\Dotenv;
-
-$dotenv = new Dotenv();
-$dotenv->load(__DIR__ . '/../.env');
+require (__DIR__ . '/loadDotenv.php');
 
 function secure_encrypt($data)
 {

@@ -1,0 +1,19 @@
+{
+  "description": "ADM Page",
+  "authors": [
+    {
+      "name": "Isaque",
+      "email": "isaquebatista25@gmail.com",
+      "role": "Backend Dev"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Adm\\": "app/adm/",
+      "Core\\": "core/"
+    }
+  },
+  "require": {
+    "symfony/dotenv": "^5.4"
+  }
+}
