@@ -35,21 +35,22 @@ if ($check !== null && secure_decrypt($check[2]) == $passwd) {
 if (session_status() == PHP_SESSION_ACTIVE) {
     setcookie('userTimeout', 1, 0, '/');
     $_SESSION['user'] = $check[0];
-    $_SESSION["newsession"] = $login;
-    $_SESSION["last-action"] = date("Y-m-d H:i:s", time());
+    $_SESSION['newsession'] = $login;
+    $_SESSION['last-action'] = date("Y-m-d H:i:s", time());
+    $_SESSION['is_superuser'] = $check[9];
     alterUserLoginTime($con, $login, $_SESSION['last-action'], 1);
     alterUserTry($con, $login, 0);
 
     $con->close();
 
-    if ($login == "ifcontabilidade") {
-        header("location:../../cliente/");
+    if ($check[9] == 1) {
+        header("location:../../admin/");
     } else {
-        header("location:../../$login/");
+        header("location:../../cliente/");
     }
 
     // if ($login == "admin") {
-    //     header("location:../../admin/");
+    //     
     // } else {
     //     header("location:../../cliente/");
     // }
